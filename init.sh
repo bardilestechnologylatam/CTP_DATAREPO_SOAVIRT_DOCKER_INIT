@@ -20,9 +20,9 @@ cd "$project_directory" || exit
 
 # Ejecuta tu docker-compose desde la raíz del proyecto
 docker-compose up -d
-sleep 45
+sleep 20
 echo "Comandos manuales no me funciono lo otro :C"
-docker-compose run -u 0 ctp_conf chmod 777 -R /usr/local/parasoft
+docker-compose run -u 0 ctp_conf chmod 777 -R /usr/local/parasoft/ctp
 docker restart -d ctp_conf
 sleep 20
 
