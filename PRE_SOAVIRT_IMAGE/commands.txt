@@ -1,0 +1,6 @@
+#image
+docker build -t soavirt_web_lss .
+
+#run container
+docker run -d -p 8080:9080 -p 9443:9443 -p 9617:9617 -p 9618:9618 --env ACCEPT_EULA=true --name soavirt-server-image --network network_bridge soavirt_web_lss
+docker run -d -p 8080:9080 -p 9443:9443 -p 9617:9617 -p 9618:9618 --env ACCEPT_EULA=true --name soavirt-server --network network_bridge parasoft/soavirt-server

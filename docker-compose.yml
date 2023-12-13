@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  soavirt:
+    image: soavirt_web_lss
+    container_name: soavirt-server
+    ports:
+      - 9080:9080
+      - 9443:9433 #HTTPS
+      - 9617:9617
+      - 9618:9618
+    environment:
+      - ACCEPT_EULA=true
+      - HTTP_PORT=9080
+      - EVENTS_PORT=9617
+      - STATISTICS_PORT=9618
+    volumes:
+      - ./SOAVIRT_VOL:/usr/local/parasoft/soavirt/webapps/ROOT/workspace
+  ctp:
+    image: ctp_conf
+    container_name: ctp_conf
+    ports:
+      - "8080:8080"
+    environment:
+      - ACCEPT_EULA=true
+      - LICENSE_SERVER_URL=http://18.188.214.8:8080
+      - LICENSE_SERVER_AUTH_ENABLED=false
+      - LICENSE_SERVER_USERNAME=admin
+      - LICENSE_SERVER_PASSWORD=admin
+      - USAGE_DATA=true
+    volumes:
+      - ./CTP_VOL:/usr/local/parasoft/ctp/hsqldb
+    

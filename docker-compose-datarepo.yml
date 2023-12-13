@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  datarepo:
+    image: parasoft/datarepo
+    container_name: datarepo
+    ports:
+      - "2424:2424"
+    environment:
+      - USERNAME=admin
+      - PASSWORD=admin
+      - CTP_URL=http://localhost:8080
+      - CTP_USERNAME=admin
+      - CTP_PASSWORD=admin
+      - ALIAS=server
+    volumes:
+      - ./DATA_REPO:/usr/local/parasoft/datarepo/repositories

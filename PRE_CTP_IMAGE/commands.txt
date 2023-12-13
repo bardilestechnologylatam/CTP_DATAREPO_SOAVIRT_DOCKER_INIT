@@ -1,0 +1,4 @@
+#create build ctp
+
+docker build --no-cache --build-arg USER_ID=1006 --build-arg GROUP_ID=1006 --build-arg USER_NAME=sysadmin -t ctp_conf .
+
